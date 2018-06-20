@@ -27,7 +27,51 @@ Output :     a
           b    e
         /  \
        c    d
-*/
+ */
+//Node class
+class Node {
+
+    char data;
+    Node left, right;
+
+    public Node(char item) {
+        data = item;
+        left = null;
+        right = null;
+    }
+}
+
 public class TernaryExpressionToBinaryTree {
+// Driver program to test above function
+
+    static Node convertExpression(char[] exp){
+        int i=0;
+        if(i == exp.length)
+            return null;
+        
+        Node root = new Node(exp[0]);
+        ++i;
+        
+        if(exp[i]=='?')
+            root.left=
+    }
     
+    static void printTree(Node root){
+        if(root == null){
+          System.out.println("Empty Tree");
+          return;
+        }
+        System.out.println(root.data);
+        printTree(root.left);
+        printTree(root.right);
+        
+    }
+    public static void main(String args[]) {
+        String exp = "a?b?c:d:e";
+        TernaryExpressionToBinaryTree tree = new TernaryExpressionToBinaryTree();
+        char[] expression = exp.toCharArray();
+        Node root= tree.convertExpression(expression);
+        tree.printTree(root);
+    }
+
 }
